@@ -19,6 +19,7 @@ namespace MoreJPEG_UI
         [STAThread]
         static void Main()
         {
+            LogManager.LoadConfiguration("NLog.config");
             LogManager.ReconfigExistingLoggers();
             LogManager.GetCurrentClassLogger().Debug("Init main");
             ServiceProvider = ConfigureServices();
