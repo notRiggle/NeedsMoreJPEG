@@ -103,11 +103,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\NeedsMoreJPEG core\NeedsMoreJPEG core.csproj">
-      <Project>{48111170-a3e8-4cfd-a554-0d15be75c79a}</Project>
-      <Name>NeedsMoreJPEG core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
