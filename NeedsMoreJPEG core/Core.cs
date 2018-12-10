@@ -9,6 +9,9 @@ namespace NeedsMoreJPEG_core
 {
     public class Core : IMoreJPEG
     {
-
+        public string Test()
+        {
+            return "Test successful";
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace NeedsMoreJPEG_core
 {
     public interface IMoreJPEG
     {
+        string Test();
     }
 }

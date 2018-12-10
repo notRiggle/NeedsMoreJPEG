@@ -15,10 +15,30 @@ namespace MoreJPEG_UI
     {
         private readonly IMoreJPEG MoreJPEG;
 
-        public MainForm(IMoreJPEG moreJPEG)
+        public MainForm(IServiceProvider serviceProvider)
         {
-            MoreJPEG = moreJPEG;
-            InitializeComponent();
+            try
+            {
+                MoreJPEG = (IMoreJPEG)serviceProvider.GetService(typeof(IMoreJPEG));
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                NLog.LogManager.GetCurrentClassLogger().Error(e, "Error occured while initialising the main form");
+#if DEBUG
+                throw;
+#endif
+            }
+        }
+
+        private void ContJPEG_click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void JPEGOnce_click(object sender, EventArgs e)
+        {
+            Test.Text = MoreJPEG.Test();
         }
     }
 }
