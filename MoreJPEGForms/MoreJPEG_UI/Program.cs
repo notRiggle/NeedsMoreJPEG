@@ -20,6 +20,7 @@ namespace MoreJPEG_UI
         static void Main()
         {
             LogManager.ReconfigExistingLoggers();
+            LogManager.GetCurrentClassLogger().Debug("Init main");
             ServiceProvider = ConfigureServices();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
