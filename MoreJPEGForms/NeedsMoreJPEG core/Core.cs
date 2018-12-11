@@ -27,7 +27,6 @@ namespace NeedsMoreJPEG_core
 
                 Image screenCap = CaptureWindow();
                 screenCap.Save(memStream, jpegEnc, encoderParameters);
-                screenCap.Save("test.jpg", jpegEnc, encoderParameters);
 
                 memStream.Position = 0;
                 Image decoded = Image.FromStream(memStream);
