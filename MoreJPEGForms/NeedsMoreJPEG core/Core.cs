@@ -30,6 +30,7 @@ namespace NeedsMoreJPEG_core
 
                 Image screenCap = CaptureWindow();
                 screenCap.Save(memStream, jpegEnc, encoderParameters);
+                screenCap.Save("test.jpg", jpegEnc, encoderParameters);
 
                 memStream.Position = 0;
                 Image decoded = Image.FromStream(memStream);
@@ -64,8 +65,8 @@ namespace NeedsMoreJPEG_core
         {
             var windowRect = new User32.Rectangle();
             User32.GetWindowRect(User32.GetDesktopWindow(), ref windowRect);
-            int ScreenWidth = windowRect.right - windowRect.left;
-            int ScreenHeight = windowRect.bottom - windowRect.top;
+            ScreenWidth = windowRect.right - windowRect.left;
+            ScreenHeight = windowRect.bottom - windowRect.top;
         }
 
         private ImageCodecInfo GetEncoder(ImageFormat format)
