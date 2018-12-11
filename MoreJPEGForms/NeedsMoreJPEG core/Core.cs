@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Media.Imaging;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace NeedsMoreJPEG_core
@@ -21,9 +16,29 @@ namespace NeedsMoreJPEG_core
             UpdateScreenBounds();
         }
 
+        [DllImport("User32.dll")]
+        static extern IntPtr GetDC(IntPtr hwnd);
+
         public void JPEGOnce()
         {
-            
+            using (Graphics g = Graphics.FromHdc(GetDC(IntPtr.Zero)))
+            {
+                ImageCodecInfo jpegEnc = GetEncoder(ImageFormat.Jpeg);
+                EncoderParameters encoderParameters = new EncoderParameters(1);
+                encoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, 0L);
+                MemoryStream memStream = new MemoryStream();
+
+                Image screenCap = CaptureWindow();
+                screenCap.Save(memStream, jpegEnc, encoderParameters);
+
+                memStream.Position = 0;
+                Image decoded = Image.FromStream(memStream);
+                g.DrawImage(decoded, 0, 0);
+
+                screenCap.Dispose();
+                memStream.Dispose();
+                decoded.Dispose();
+            }
         }
 
         Image CaptureWindow()
@@ -51,6 +66,19 @@ namespace NeedsMoreJPEG_core
             User32.GetWindowRect(User32.GetDesktopWindow(), ref windowRect);
             int ScreenWidth = windowRect.right - windowRect.left;
             int ScreenHeight = windowRect.bottom - windowRect.top;
+        }
+
+        private ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
         }
 
         public string Test()
