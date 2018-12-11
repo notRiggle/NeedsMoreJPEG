@@ -31,7 +31,12 @@ namespace MoreJPEG_UI
 
         private void JPEGOnce_click(object sender, EventArgs e)
         {
-            MoreJPEG.JPEGOnce();
+            if (!long.TryParse(JPEGLevel.Text, out long jpegQuality))
+            {
+                MessageBox.Show("The value must be a long!", "Unexpected text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MoreJPEG.JPEGOnce(jpegQuality);
             Test.Text = MoreJPEG.Test();
         }
     }

@@ -4,6 +4,6 @@
     {
         string Test();
         void CrashTest();
-        void JPEGOnce();
+        void JPEGOnce(long jpegQuality);
     }
 }

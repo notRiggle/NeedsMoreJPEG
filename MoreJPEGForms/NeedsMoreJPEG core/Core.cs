@@ -16,16 +16,13 @@ namespace NeedsMoreJPEG_core
             UpdateScreenBounds();
         }
 
-        [DllImport("User32.dll")]
-        static extern IntPtr GetDC(IntPtr hwnd);
-
-        public void JPEGOnce()
+        public void JPEGOnce(long jpegQuality)
         {
-            using (Graphics g = Graphics.FromHdc(GetDC(IntPtr.Zero)))
+            using (Graphics g = Graphics.FromHdc(User32.GetWindowDC(User32.GetDesktopWindow())))
             {
                 ImageCodecInfo jpegEnc = GetEncoder(ImageFormat.Jpeg);
                 EncoderParameters encoderParameters = new EncoderParameters(1);
-                encoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, 0L);
+                encoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, jpegQuality);
                 MemoryStream memStream = new MemoryStream();
 
                 Image screenCap = CaptureWindow();

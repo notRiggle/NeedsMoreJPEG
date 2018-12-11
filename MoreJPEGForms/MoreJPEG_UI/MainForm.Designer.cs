@@ -37,7 +37,7 @@
             // 
             // DoOnce
             // 
-            this.DoOnce.Location = new System.Drawing.Point(534, 329);
+            this.DoOnce.Location = new System.Drawing.Point(319, 89);
             this.DoOnce.Name = "DoOnce";
             this.DoOnce.Size = new System.Drawing.Size(75, 23);
             this.DoOnce.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // Continuous
             // 
-            this.Continuous.Location = new System.Drawing.Point(187, 329);
+            this.Continuous.Location = new System.Drawing.Point(12, 89);
             this.Continuous.Name = "Continuous";
             this.Continuous.Size = new System.Drawing.Size(107, 23);
             this.Continuous.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // JPEGLevel
             // 
-            this.JPEGLevel.Location = new System.Drawing.Point(379, 89);
+            this.JPEGLevel.Location = new System.Drawing.Point(182, 53);
             this.JPEGLevel.Name = "JPEGLevel";
             this.JPEGLevel.Size = new System.Drawing.Size(37, 20);
             this.JPEGLevel.TabIndex = 2;
@@ -66,7 +66,7 @@
             // LevelOfJPEG
             // 
             this.LevelOfJPEG.AutoSize = true;
-            this.LevelOfJPEG.Location = new System.Drawing.Point(359, 73);
+            this.LevelOfJPEG.Location = new System.Drawing.Point(161, 37);
             this.LevelOfJPEG.Name = "LevelOfJPEG";
             this.LevelOfJPEG.Size = new System.Drawing.Size(75, 13);
             this.LevelOfJPEG.TabIndex = 3;
@@ -75,7 +75,7 @@
             // Test
             // 
             this.Test.AutoSize = true;
-            this.Test.Location = new System.Drawing.Point(376, 221);
+            this.Test.Location = new System.Drawing.Point(12, 9);
             this.Test.Name = "Test";
             this.Test.Size = new System.Drawing.Size(53, 13);
             this.Test.TabIndex = 4;
@@ -83,9 +83,10 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(406, 124);
             this.Controls.Add(this.Test);
             this.Controls.Add(this.LevelOfJPEG);
             this.Controls.Add(this.JPEGLevel);
