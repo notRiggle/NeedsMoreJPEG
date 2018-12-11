@@ -31,6 +31,7 @@ namespace MoreJPEG_UI
 
         private void JPEGOnce_click(object sender, EventArgs e)
         {
+            MoreJPEG.JPEGOnce();
             Test.Text = MoreJPEG.Test();
         }
     }
